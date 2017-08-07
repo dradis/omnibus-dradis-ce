@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Perform necessary dradis-ce removal steps
+# after package is uninstalled.
+#
+
+echo "dradis-ce has been uninstalled!"
+
+exit 0
