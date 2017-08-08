@@ -1,0 +1,18 @@
+---
+driver:
+  name: docker
+  binary: docker.io
+
+provisioner:
+  name: chef_solo
+
+platforms:
+- name: ubuntu-12.04
+  driver_config:
+    image: ubuntu:12.04
+    platform: ubuntu
+
+suites:
+  - name: default
+    run_list:
+    attributes:

@@ -7,7 +7,7 @@ dependency "bundler"
 dependency "libmysql"
 dependency "libsqlite"
 dependency "git"
-dependency "redis"
+#dependency "redis"
 
 source :git => "https://github.com/dradis/dradis-ce.git"
 

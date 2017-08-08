@@ -1,5 +1,5 @@
 #
-# Copyright 2017 Anton Birkov
+# Copyright 2017
 #
 # All Rights Reserved.
 #
