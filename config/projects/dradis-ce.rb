@@ -16,7 +16,7 @@ build_version "3.0"
 #build_version Omnibus::BuildVersion.semver
 build_iteration 1
 
-override :ruby, version: "2.2.2"
+override :ruby, version: "2.2.5"
 
 # Creates required build directories
 dependency "preparation"
