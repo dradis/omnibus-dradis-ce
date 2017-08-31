@@ -1,18 +1,40 @@
 ---
 driver:
-  name: docker
-  binary: docker.io
+  name: vagrant
+  customize:
+      cpus: 2
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
+  require_chef_omnibus: <%= ENV['CHEF_VERSION'] || '12.21.3' %>
+  attributes:
+    vagrant: true
 
 platforms:
-- name: ubuntu-12.04
-  driver_config:
-    image: ubuntu:12.04
-    platform: ubuntu
+  - name: ubuntu-14.04
+    run_list: apt::default
 
+  - name: debian-7.8
+    run_list: apt::default
+
+  - name: centos-7.2
+    run_list: yum-epel::default
+
+  - name: osx-10.12
+    driver:
+        box: telldev/osx-sierra-x64-nw-build
 suites:
-  - name: default
-    run_list:
+  - name: build
+    run_list: recipe[cmake]
+    run_list: omnibus::default
+    run_list: omnibus_build::execute
     attributes:
+        cmake:
+            install_method:      package
+        omnibus:
+            build_user:          vagrant
+            build_user_group:    vagrant
+            build_user_password: vagrant
+            install_dir:         /opt/dradis-ce
+            build_dir:           /home/vagrant/dradis-ce
+            build_project:       dradis-ce
