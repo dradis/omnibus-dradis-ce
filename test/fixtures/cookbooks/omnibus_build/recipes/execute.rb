@@ -13,8 +13,14 @@ end
 
 include_recipe 'omnibus::default'
 
-package 'cmake' do
+#package 'cmake' do
+#    action :install
+#end
+
+['cmake','git'].each do |p|
+  package p do
     action :install
+  end
 end
 
 # clone Harmony project
