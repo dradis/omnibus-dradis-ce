@@ -23,7 +23,7 @@ include_recipe 'omnibus::default'
   end
 end
 
-# clone Harmony project
+# clone Dradis-ce project
 dradis_project_dir = File.join(build_user_home, 'dradis-ce')
 
 # In order to have all the toolchain executables in the path, we need to set up
