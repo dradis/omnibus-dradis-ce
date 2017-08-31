@@ -18,8 +18,8 @@ group :development do
   # Use Test Kitchen with Vagrant for converging the build environment
   gem 'test-kitchen',    '~> 1.4'
   gem 'kitchen-vagrant', '~> 0.18'
-  gem 'kitchen-docker'
-  gem 'kitchen-docker_cli'
+#  gem 'kitchen-docker'
+#  gem 'kitchen-docker_cli'
 #  gem 'kitchen-docker_ssh'
 #  gem 'kitchen-docker-api'
 end

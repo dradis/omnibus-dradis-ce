@@ -13,15 +13,15 @@ end
 
 include_recipe 'omnibus::default'
 
-#package 'cmake' do
-#    action :install
-#end
-
-['cmake','git'].each do |p|
-  package p do
+package 'cmake' do
     action :install
-  end
 end
+
+#['cmake','git'].each do |p|
+#  package p do
+#    action :install
+#  end
+#end
 
 # clone Dradis-ce project
 dradis_project_dir = File.join(build_user_home, 'dradis-ce')
