@@ -42,5 +42,5 @@ build do
 	"-DCMAKE_INSTALL_PREFIX=#{install_dir}/embedded",
 	".",
 	].join(" "), :env => env
-  command "make -j install"
+  command "make -i -j install"
 end

@@ -4,7 +4,7 @@ default_version "master"
 dependency "ruby"
 dependency "rubygems"
 dependency "bundler"
-dependency "mysql-client"
+dependency "libmysql"
 dependency "libsqlite"
 #dependency "redis"
 

@@ -13,27 +13,40 @@ provisioner:
 platforms:
   - name: ubuntu-14.04
     run_list: apt::default
+    driver:
+        kitchen_cache_directory: .kitchen/ubuntu_cache
+        synced_folders:
+            - ["pkg/ubuntu-14.04", "/home/vagrant/omnibus-dradis-ce/pkg", "create: true, type: :rsync"]
 
   - name: debian-7.8
     driver:
+        kitchen_cache_directory: .kitchen/debian_cache
+        synced_folders:
+            - ["pkg/debian-7.8", "/home/vagrant/omnibus-dradis-ce/pkg", "create: true, type: :rsync"]
         customize:
-            memory: 2048
+            memory: 1024
     run_list: apt::default
 
   - name: centos-7.2
     run_list: yum-epel::default
+    driver:
+        kitchen_cache_directory: .kitchen/centos_cache
+        synced_folders:
+            - ["pkg/centos-7.2", "/home/vagrant/omnibus-dradis-ce/pkg", "create: true, type: :rsync"]
 
   - name: osx-10.12
     driver:
+        kitchen_cache_directory: .kitchen/osx_cache
+        synced_folders:
+            - ["pkg/osx-10.12", "/Users/vagrant/omnibus-dradis-ce/pkg", "create: true, type: :rsync"]
+            - [".", "/vagrant", "create: true, type: :rsync" ]
         box: telldev/osx-sierra-x64-nw-build
+
 suites:
   - name: build
-    run_list: recipe[cmake]
     run_list: omnibus::default
     run_list: omnibus_build::execute
     attributes:
-        cmake:
-            install_method:      package
         omnibus:
             build_user:          vagrant
             build_user_group:    vagrant
