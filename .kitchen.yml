@@ -39,7 +39,6 @@ platforms:
         kitchen_cache_directory: .kitchen/osx_cache
         synced_folders:
             - ["pkg/osx-10.12", "/Users/vagrant/omnibus-dradis-ce/pkg", "create: true, type: :rsync"]
-            - [".", "/vagrant", "create: true, type: :rsync" ]
         box: telldev/osx-sierra-x64-nw-build
 
 suites:
