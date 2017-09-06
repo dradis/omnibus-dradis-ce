@@ -13,10 +13,6 @@ end
 
 include_recipe 'omnibus::default'
 
-#package 'cmake' do
-#    action :install
-#end
-
 ['cmake','git'].each do |p|
   package p do
     action :install
@@ -48,4 +44,10 @@ omnibus_build 'dradis-ce' do
   config_overrides(
     append_timestamp: true
   )
+end
+
+#move package to synced directory
+execute "move_package" do
+    command "mv ~/dradis-ce/pkg/* ~/pkg"
+    user "vagrant"
 end
