@@ -16,13 +16,13 @@ platforms:
     driver:
         kitchen_cache_directory: .kitchen/ubuntu_cache
         synced_folders:
-            - ["pkg/ubuntu-14.04", "/home/vagrant/pkg", "create: true, type: :rsync"]
+            - ["pkg/ubuntu-14.04", "/home/vagrant/pkg", "create: true"]
 
   - name: debian-7.8
     driver:
         kitchen_cache_directory: .kitchen/debian_cache
         synced_folders:
-            - ["pkg/debian-7.8", "/home/vagrant/pkg", "create: true, type: :rsync"]
+            - ["pkg/debian-7.8", "/home/vagrant/pkg", "create: true"]
         customize:
             memory: 1024
     run_list: apt::default
@@ -32,7 +32,7 @@ platforms:
     driver:
         kitchen_cache_directory: .kitchen/centos_cache
         synced_folders:
-            - ["pkg/centos-7.2", "/home/vagrant/pkg", "create: true, type: :rsync"]
+            - ["pkg/centos-7.2", "/home/vagrant/pkg", "create: true"]
 
   - name: osx-10.12
     driver:

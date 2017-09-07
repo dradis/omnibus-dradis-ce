@@ -101,9 +101,27 @@ Once you have tweaked your `.kitchen.yml` (or `.kitchen.local.yml`) to your
 liking, you can bring up an individual build environment using the `kitchen`
 command.
 
+Build package for Ubuntu 14.04 LTS:
 ```shell
-$ bin/kitchen converge ubuntu-1204
+$ bin/kitchen converge build-ubuntu-1404
 ```
+
+Build package for Debian 7.8:
+```shell
+$ bin/kitchen converge build-debian-78
+```
+
+Build package for Centos 7.2:
+```shell
+$ bin/kitchen converge build-centos-72
+```
+
+Build package for OSX 10.12:
+```shell
+$ bin/kitchen converge build-osx-1012
+```
+
+Builded packages should be placed in pkg/$osname directory
 
 Then login to the instance and build the project as described in the Usage
 section:
